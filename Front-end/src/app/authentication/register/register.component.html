@@ -1,102 +1,275 @@
 <div class="wrapper">
-    <div class="page-header" style="background-image: url('./assets/img/antoine-barres.jpg');">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
-                      <div class="card card-register register-color">
-                          <h3 class="title">Register</h3>
-                         
-                          <form class="register-form">
-                            <label>Name</label>
-                            <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="nc-icon nc-circle-09"></i>
-                                </span>
-                              </div>
+  <div
+    class="page-header"
+    style="background-image: url('./assets/img/antoine-barres.jpg')"
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+          <div class="card card-register register-color">
+            <h3 class="title">Register</h3>
 
-                                <input type="text" class="form-control" placeholder="Name" (focus)="focus=true" (blur)="focus=false" required>
-                            </div>
+            <!-- <form #f="ngForm" (ngSubmit)="onSubmit(f)"> -->
+            <label>Name</label>
+            <div class="input-group form-group-no-border">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="nc-icon nc-circle-09"></i>
+                </span>
+              </div>
 
-                            <label>Phone_No.</label>
-                            <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="nc-icon nc-email-85"></i>
-                                </span>
-                              </div>
-
-                                <input type="text" class="form-control" placeholder="Phone Number" (focus)="focus=true" (blur)="focus=false" required>
-                            </div>
-
-                            <label>Address</label>
-                            <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="nc-icon nc-square-pin"></i>
-                                </span>
-                              </div>
-
-                              <textarea class="form-control" rows="4" placeholder="Address...."></textarea>
-                            </div>
-
-                            <label>City</label>
-                            <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="nc-icon nc-square-pin"></i>
-                                </span>
-                              </div>
-
-                                <input type="text" class="form-control" placeholder="City" (focus)="focus=true" (blur)="focus=false" required>
-                            </div>
-
-                            <label>State</label>
-                            <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="nc-icon nc-square-pin"></i>
-                                </span>
-                              </div>
-
-                                <input type="text" class="form-control" placeholder="State" (focus)="focus=true" (blur)="focus=false" required>
-                            </div>
-                            <label>Pincode</label>
-                            <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="nc-icon nc-square-pin"></i>
-                                </span>
-                              </div>
-
-                                <input type="text" class="form-control" placeholder="Pincode" (focus)="focus=true" (blur)="focus=false" required>
-                            </div>
-
-                            <label>Email</label>
-                            <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="nc-icon nc-email-85"></i>
-                                </span>
-                              </div>
-
-                                <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false" required>
-                            </div>
-
-                              <label>Password</label>
-                              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text">
-                                      <i class="nc-icon nc-key-25"></i>
-                                  </span>
-                                </div>
-                                  <input type="password" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" required>
-                              </div>
-                              <button class="btn btn-danger btn-block btn-round" >Register</button>
-                            </form>
-                      </div>
-                    </div>
-                </div>
+              <input
+                ngModel
+                name="Name"
+                #name="Name"
+                (chenge)="log(name)"
+                type="text"
+                class="form-control"
+                placeholder="Name"
+              />
+              <div
+                class="alert alert-danger"
+                ngIf="Name.touched && !Name.Valid"
+              >
+                First Name is required
+              </div>
             </div>
+
+            <label>Phone_No.</label>
+            <div
+              class="input-group form-group-no-border"
+              [ngClass]="{ 'input-group-focus': focus === true }"
+            >
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="nc-icon nc-email-85"></i>
+                </span>
+              </div>
+
+              <input
+                ngModel
+                name="phone"
+                #phone="ngModel"
+                (change)="log(phone)"
+                type="text"
+                class="form-control"
+                placeholder="Phone Number"
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="phone.touched && !phone.Valid"
+              >
+                Phone Number is required
+              </div>
+            </div>
+
+            <label>Address</label>
+            <div
+              class="input-group form-group-no-border"
+              [ngClass]="{ 'input-group-focus': focus === true }"
+            >
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="nc-icon nc-square-pin"></i>
+                </span>
+              </div>
+
+              <textarea
+                ngModel
+                name="address"
+                #address="ngModel"
+                (change)="log(phone)"
+                class="form-control"
+                rows="4"
+                placeholder="Address...."
+              ></textarea>
+              <div
+                class="alert alert-danger"
+                *ngIf="address.touched && !address.Valid"
+              >
+                Address is required
+              </div>
+            </div>
+
+            <label>City</label>
+            <div class="input-group form-group-no-border">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="nc-icon nc-square-pin"></i>
+                </span>
+              </div>
+
+              <input
+                ngModel
+                name="city"
+                #city="ngModel"
+                (change)="log(city)"
+                type="text"
+                class="form-control"
+                placeholder="City"
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="city.touched && !city.Valid"
+              >
+                City is required!!
+              </div>
+            </div>
+
+            <label>State</label>
+            <div class="input-group form-group-no-border">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="nc-icon nc-square-pin"></i>
+                </span>
+              </div>
+
+              <input
+                ngModel
+                name="state"
+                #state="ngModel"
+                (change)="log(state)"
+                type="text"
+                class="form-control"
+                placeholder="State"
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="state.touched && !state.Valid"
+              >
+                Enter State!!
+              </div>
+            </div>
+            <label>Pincode</label>
+            <div class="input-group form-group-no-border">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="nc-icon nc-square-pin"></i>
+                </span>
+              </div>
+
+              <input
+                ngModel
+                name="pin"
+                #pin="ngModel"
+                (change)="log(pin)"
+                type="text"
+                class="form-control"
+                placeholder="Pincode"
+                pattern="[0-9]"
+                maxlength="6"
+              />
+              <div
+                *ngIf="pin.invalid && pin.touched"
+                class="alert alert-danger"
+              >
+                <div *ngIf="pin.errors.required">Name is required.</div>
+                <div *ngIf="pin.errors.pattern">Invalid!!!</div>
+              </div>
+            </div>
+            <label>Email</label>
+            <div class="input-group form-group-no-border" ">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-email-85"></i>
+              </span>
+              <input
+                ngModel
+                name="email"
+                #email="(ngModel)"
+                (change)="log(email)"
+                type="text"
+                class="form-control"
+                placeholder="Email"
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="email.touched && !email.Valid"
+              >
+                Enter an Email
+              </div>
+            </div>
+            <label>Password</label>
+            <div class="input-group form-group-no-border">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="nc-icon nc-key-25"></i>
+                </span>
+                <input
+                  ngModel
+                  name="psswd"
+                  #psswd="ngModel"
+                  (change)="log(psswd)"
+                  type="password"
+                  class="form-control"
+                  placeholder="Password"
+                />
+                <div
+                  class="alert alert-danger"
+                  *ngIf="psswd.touched && !psswd.Valid"
+                >
+                  Enter Password!!
+                </div>
+              </div>
+
+              <label>confirmPassword</label>
+              <div class="input-group form-group-no-border">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="nc-icon nc-key-25"></i>
+                  </span>
+                </div>
+                <input
+                  ngModel
+                  name="confirmPassword"
+                  #confirmPassword="ngModel"
+                  (change)="log(confirm - password)"
+                  type="password"
+                  class="form-control"
+                  placeholder="confirmPassword"
+                />
+                <div
+                  *ngIf="
+                    confirm - password.invalid && confirm - password.touched
+                  "
+                  class="alert alert-danger"
+                >
+                  <div *ngIf="pin.errors.required">Re-enter the password!!</div>
+                  <div
+                    *ngIf="psswd.errors.value !== confirmPassword.errors.value"
+                  >
+                    Invalid!!
+                  </div>
+                </div>
+              </div>
+              <!-- <mat-form-field >
+                                  <input matInput  placeholder="New password" [type]="hide ? 'password' 
+                                    : 'text'" [formControl]="passFormControl" required>
+                                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 
+                                    'visibility_off'}}</mat-icon>
+                                  <mat-error *ngIf="passFormControl.hasError('required')">
+                                      Please enter your password
+                                   </mat-error>
+                                </mat-form-field>
+                          
+                                <mat-form-field >
+                                   <input matInput  placeholder="Confirm password" [type]="hide ? 
+                                        'password' : 'text'" [formControl]="confirmFormControl" 
+                                              required>
+                                   <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 
+                                          'visibility_off'}}</mat-icon>
+                                   <mat-error *ngIf="confirmFormControl.hasError('required')">
+                                    Confirm your password
+                                    </mat-error>
+                                </mat-form-field> -->
+              <button type="submit" class="btn btn-block btn-round btn-danger">
+                Register
+              </button>
+              <!-- </form> -->
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
