@@ -11,6 +11,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  log(x) {console.log(x);}
 
 }
  

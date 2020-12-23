@@ -1,47 +1,47 @@
 <div class="wrapper">
   <div class="page-header" style="background-color: black;">
+      <div class="filter"></div>
           <div class="container">
               <div class="row">
                   <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
-                    <div class="card card-register login">
+                    <div class="card card-register">
                         <h3 class="title">Welcome</h3>
-                        <form class="register-form">
+                       
+                        <form class="register-form" ngModel name="loginform" #loginform="ngModel">
                             <label>Email</label>
-                            <div class="input-group form-group-no-border">
+                            <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                               <div class="input-group-prepend">
                                 <span class="input-group-text">
                                     <i class="nc-icon nc-email-85"></i>
                                 </span>
                               </div>
 
-                                <input required ngModel name="email" #email="ngModel" (change)="log(email)" id="email" type="text" class="form-control" placeholder="Email">
-                                <div class="form-control-feedback" *ngIf="email.touched && !email.Valid">Email Required</div>
-                              </div>
+                                <input required email ngModel name="email" #email="ngModel" type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false" >
+                                </div>
+                                <div class="alert alert-danger"  *ngIf="!email.valid && email.touched">Enter valid email id </div>
 
                             <label>Password</label>
-                            <div class="input-group form-group-no-border">
+                            <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
                               <div class="input-group-prepend">
                                 <span class="input-group-text">
                                     <i class="nc-icon nc-key-25"></i>
                                 </span>
                               </div>
-                                <input required minlength="6" ngModel name="password" #password="ngModel" (change)="log(password)" id="password" type="password" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" >
-                                <!-- <div class="form-control-feedback" *ngIf="password.errors.minlength">Minimum 6 characters</div>
-                            </div> -->
+                                <input required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  ngModel name="password" #password="ngModel" type="text" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" >
                             </div>
-                            <button type="submit" class="btn btn-danger btn-block btn-round">Sign In</button>
-                     
+                            <div   *ngIf="!password.valid && password.touched">
+                              <div class="alert alert-danger" *ngIf="!password.valid">Enter valid Password</div>
+                             <div class="alert alert-danger" *ngIf="password.errors.pattern">Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters</div>
+                          </div>
+                            <button [disabled]="loginform.invalid" class="btn btn-danger btn-block btn-round">Login </button>
+                        </form>
                         <div class="forgot">
-                            <a href="http://localhost:4200/forgot-passwd" class="btn btn-info btn-link">Forgot password?</a>
-
+                            <a href="#" class="btn btn-link btn-danger">Forgot password?</a>
+                            <a href="http://localhost:4200/register" class="btn btn-link btn-danger">Create an account</a> 
                         </div>
-                        <div class="signup">
-                           <center> <a href="http://localhost:4200/register" class="btn btn-info btn-link">Create an Account</a></center>
-                        </div>
-                      </form>
                     </div>
                   </div>
-              </div>
+                </div>
           </div>
   </div>
 </div>

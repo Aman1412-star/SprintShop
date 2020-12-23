@@ -1,3 +1,9 @@
-.login{
+.card-register{
     background-color: transparent;
+}
+.title{
+    color: white;
+}
+.btn.btn-link.btn-danger{
+    color: white;
 }
