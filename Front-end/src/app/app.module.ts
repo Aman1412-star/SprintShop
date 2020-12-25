@@ -13,6 +13,7 @@ import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
 import { RegisterComponent } from './authentication/register/register.component';
 import { LoginComponent } from './authentication/login/login.component';
+import { FeedbackComponent } from "./authentication/feedback/feedback.component";
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { LoginComponent } from './authentication/login/login.component';
     NavbarComponent,
     FooterComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    FeedbackComponent,
   ],
   imports: [
     BrowserModule,

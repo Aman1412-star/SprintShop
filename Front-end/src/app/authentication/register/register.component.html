@@ -19,7 +19,7 @@
                             </div>
                             <div   *ngIf="!name.valid && name.touched"> 
                               <div class="alert alert-danger" *ngIf="name.errors.required"> Name Required </div>
-                              <div class="alert alert alert-danger"  *ngIf="name.errors.minlength"> Name must be at least 3 character long  </div>
+                              <div class="alert alert-danger"  *ngIf="name.errors.minlength"> Name must be at least 3 character long  </div>
                               <div class="alert alert-danger" *ngIf="name.errors.pattern"> Alphabets only </div>
                           </div>
 
@@ -33,7 +33,7 @@
 
                             <input required address ngModel name="address" #address="ngModel" type="text" class="form-control" placeholder="Address" (focus)="focus=true" (blur)="focus=false" >
                           </div>
-                          <div class="form-control-feedback"  *ngIf="!address.valid && address.touched"> Enter a Valid Addres!!</div>
+                          <div class="alert alert-danger"  *ngIf="!address.valid && address.touched"> Enter a Valid Addres!!</div>
 
                           <label>State</label>
                           <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
@@ -45,7 +45,7 @@
 
                               <input required state ngModel name="state" #state="ngModel" type="text" class="form-control" placeholder="State" (focus)="focus=true" (blur)="focus=false" >
                           </div>
-                         <div class="form-control-feedback"  *ngIf="!state.valid && state.touched"> Enter a Valid State</div>
+                         <div class="alert alert-danger"  *ngIf="!state.valid && state.touched"> Enter a Valid State</div>
 
                             <label>City</label>
                             <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
@@ -57,7 +57,7 @@
 
                               <input required city ngModel name="city" #city="ngModel" type="text" class="form-control" placeholder="City" (focus)="focus=true" (blur)="focus=false" >
                             </div>
-                            <div class="form-control-feedback"  *ngIf="!city.valid && city.touched"> Enter a Valid State!!</div>
+                            <div class="alert alert-danger"  *ngIf="!city.valid && city.touched"> Enter a Valid State!!</div>
 
                             <label>Pincode</label>
                             <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
@@ -70,7 +70,7 @@
                                 <input required pincode ngModel  name="pin" #pin="ngModel" type="text" maxlength="6" pattern="^([^0][0-9]){6}$" class="form-control" placeholder="Pincode" (focus)="focus=true" (blur)="focus=false" >
                             </div>
                            
-                            <div class="form-control-feedback" *ngIf="!pin.valid && pin.touched ">
+                            <div class="alert alert-danger" *ngIf="!pin.valid && pin.touched ">
                               <div class="" *ngIf="!pin.Valid">Enter a valid pin</div>
                               <div *ngIf="pin.errors.pattern">Only Numbers and 6 digits</div> 
                             </div>
@@ -85,7 +85,7 @@
 
                                 <input required email ngModel name="email" #email="ngModel" type="email" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false" >
                             </div>
-                           <div class="form-control-feedback"  *ngIf="!email.valid && email.touched"> Enter a Valid Email</div>
+                           <div class="alert alert-danger"  *ngIf="!email.valid && email.touched"> Enter a Valid Email</div>
 
                             <label>Password</label>
                             <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
@@ -94,11 +94,11 @@
                                     <i class="nc-icon nc-key-25"></i>
                                 </span>
                               </div>
-                                <input required  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" ngModel name="password" #password="ngModel" type="text" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" >
+                                <input required  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" ngModel name="password" #password="ngModel" type="password" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" >
                             </div>
                              <div   *ngIf="!password.valid && password.touched">
-                              <div class="form-control-feedback" *ngIf="!password.valid">Enter a valid Password</div>
-                            <div class="form-control-feedback" *ngIf="password.errors.pattern">Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters</div>
+                              <div class="alert alert-danger" *ngIf="!password.valid">Enter a valid Password</div>
+                            <div class="alert alert-danger" *ngIf="password.errors.pattern">Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters</div>
                             
                           </div>
                             <button  type="submit" class="btn btn-danger btn-block btn-round">Register</button>
