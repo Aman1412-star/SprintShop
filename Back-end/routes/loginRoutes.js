@@ -5,15 +5,7 @@ router.post('/signup', (req,res)=>{
 
 })
 
-router.get('/signup', (req,res)=>{
-
-})
-
 router.post('/signin', (req,res)=>{
-
-})
-
-router.get('/signin', (req,res)=>{
 
 })
 

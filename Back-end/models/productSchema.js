@@ -6,6 +6,7 @@ const Schema = mongoose.Schema;
 
 let productSchema= Schema({
 
+    category_id: Number,
     product_name: String,
     price: Number,
     product_details: String,
@@ -15,7 +16,8 @@ let productSchema= Schema({
         feedback: String,
         reviews: Number,
     }],
-    stock: Number
+    stock: Number,
+    hide: Boolean
 })    
 
 const Product= mongoose.model('product' , productSchema);
