@@ -14,6 +14,7 @@ import { ExamplesModule } from './examples/examples.module';
 import { RegisterComponent } from './authentication/register/register.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { FeedbackComponent } from "./authentication/feedback/feedback.component";
+import { AdminHomeComponent } from './authentication/admin-home/admin-home.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { FeedbackComponent } from "./authentication/feedback/feedback.component"
     RegisterComponent,
     LoginComponent,
     FeedbackComponent,
+    AdminHomeComponent,
   ],
   imports: [
     BrowserModule,
