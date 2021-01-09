@@ -22,7 +22,7 @@ let lineItem = Schema({
 let orderSchema= Schema({
 
     order_details: [lineItem],
-    customer_name: String,
+    customer_id: {type : Schema.Types.ObjectId, ref : 'customer'},
     deliver_address: [address],
     total_amount: Number,
     payment_details:  String,

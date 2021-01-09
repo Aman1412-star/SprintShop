@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let detailsSchema=Schema({
-    product_id: {type : Schema.types.objectId, refernce : 'Product'},
+    product_id: {type : Schema.Types.ObjectId, ref : 'product'},
     quantity: Number,
 })
 
